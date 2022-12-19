@@ -1,9 +1,23 @@
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
 [package]
 name = "rdgrep"
 version = "0.1.0"
+authors = ["Takumi Yoshida <umibooose@gmail.com>"]
 edition = "2021"
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+documentation = "https://docs.rs/rdgrep/"
+homepage = "https://crates.io/crates/rdgrep"
+repository = "https://github.com/craftscat/rdgrep"
+
+readme = "README.md"
+
+keywords = ["Ruby", "RuboCop"]
+categories = ["development-tools"]
+license = "MIT"
+
+[badges]
+maintenance = { status = "actively-developed" }
 
 [dependencies]
 structopt = "0.3"
