@@ -11,9 +11,9 @@ use std::vec::Vec;
 use structopt::StructOpt;
 
 #[derive(StructOpt)]
-#[structopt(name = "spotter")]
+#[structopt(name = "rdgrep")]
 // Command line arguments.
-struct SpotterArgs {
+struct RdgrepArgs {
     #[structopt(name = "PATH")]
     path: String,
 }
@@ -132,7 +132,7 @@ pub fn run(path: String) -> Result<Vec<(String, i32)>, io::Error> {
 }
 
 fn main() {
-    match run(SpotterArgs::from_args().path) {
+    match run(RdgrepArgs::from_args().path) {
         Ok(result) => {
             for r in result {
                 println!("{:?}", r);
