@@ -6,6 +6,8 @@ version = "0.1.0"
 authors = ["Takumi Yoshida <umibooose@gmail.com>"]
 edition = "2021"
 
+description = "A tool to display the number of files that have disabled RuboCop conventions(rubocop:disable)."
+
 documentation = "https://docs.rs/rdgrep/"
 homepage = "https://crates.io/crates/rdgrep"
 repository = "https://github.com/craftscat/rdgrep"
