@@ -1,10 +1,10 @@
-use std::fs::DirEntry;
-use std::process;
 use regex::Regex;
 use std::collections::HashMap;
 use std::fs;
+use std::fs::DirEntry;
 use std::io;
 use std::path::{Path, PathBuf};
+use std::process;
 use std::sync::mpsc;
 use std::thread;
 use std::vec::Vec;
@@ -27,7 +27,10 @@ fn find_ruby_files<P: AsRef<Path>>(path: P, paths: &mut Vec<PathBuf>) -> Result<
     for entry in fs::read_dir(path)? {
         let entry: DirEntry = entry?;
 
-        if EXCLUDE_PATHS.iter().any(|p: &&str|entry.path().to_string_lossy().contains(p)) {
+        if EXCLUDE_PATHS
+            .iter()
+            .any(|p: &&str| entry.path().to_string_lossy().contains(p))
+        {
             continue;
         }
 
@@ -92,12 +95,13 @@ fn find_disabled_copss(content: &str) -> Vec<String> {
     for line in content.lines() {
         if line.contains(pattern) {
             // Delete spaces & "#" & "rubocop:disable"
-            let mut comment = regex.captures(line)
-                                            .unwrap()
-                                            .get(0)
-                                            .unwrap()
-                                            .as_str()
-                                            .replace(pattern, "");
+            let mut comment = regex
+                .captures(line)
+                .unwrap()
+                .get(0)
+                .unwrap()
+                .as_str()
+                .replace(pattern, "");
             comment.retain(|c: char| c != '#' && c != ' ');
 
             let cops: Vec<&str> = comment.split(',').collect();
